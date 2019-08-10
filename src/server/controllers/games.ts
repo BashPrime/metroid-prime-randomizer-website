@@ -9,4 +9,10 @@ router.get('/', (req, res) => {
     .then(games => res.json(games));
 });
 
+// Get game by abbreviation
+router.get('/:gameAbbr', (req, res) => {
+    games.getOneByAbbreviation(req.params.gameAbbr)
+    .then(game => res.json(game));
+});
+
 export default router;

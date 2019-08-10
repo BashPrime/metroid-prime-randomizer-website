@@ -8,7 +8,8 @@ import { defineControllers } from './controllers';
 // Initialize express
 const app = express();
 
-const connection = getConnection();
+// Initialize knex connection
+getConnection();
 
 // API location (all node routes will fall under /api path)
 app.use('/api', defineControllers());
