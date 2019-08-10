@@ -1,7 +1,8 @@
 {
   "name": "metroid-prime-randomizer-website",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
+    "initdb": "ts-node --project ./src/server/tsconfig.json ./src/server/db/initDb.ts",
     "server": "ts-node --project ./src/server/tsconfig.json ./src/server/main.ts",
     "server:dev": "nodemon"
   },

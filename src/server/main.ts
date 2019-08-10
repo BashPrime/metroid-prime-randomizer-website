@@ -1,26 +1,17 @@
 import * as express from 'express';
-import * as knex from 'knex';
 import * as http from 'http';
 
 import * as config from './config.json';
-import { getMainController } from './controllers/mainController';
+import { getConnection } from './config/database';
+import { defineControllers } from './controllers';
 
 // Initialize express
 const app = express();
 
-const connection = knex({
-  client: 'pg',
-  connection: {
-    host: config.database.host,
-    user: config.database.user,
-    password: config.database.password,
-    port: config.database.port,
-    database: config.database.database
-  }
-});
+const connection = getConnection();
 
 // API location (all node routes will fall under /api path)
-app.use('/api', getMainController());
+app.use('/api', defineControllers());
 
 const port = config.server.port;
 app.set('port', port);
