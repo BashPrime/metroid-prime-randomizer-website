@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as games from '../models/games';
+import * as gameArticles from '../models/gameArticles';
 
 const router = Router();
 
@@ -13,6 +14,11 @@ router.get('/', (req, res) => {
 router.get('/:gameAbbr', (req, res) => {
     games.getOneByAbbreviation(req.params.gameAbbr)
     .then(game => res.json(game));
+});
+
+router.get('/:gameAbbr/articles', (req, res) => {
+    gameArticles.getAllForGame(req.params.gameAbbr)
+    .then(articles => res.json(articles));
 });
 
 export default router;
