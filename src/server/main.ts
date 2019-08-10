@@ -3,25 +3,29 @@ import * as knex from 'knex';
 import * as http from 'http';
 
 import * as config from './config.json';
+import { getMainController } from './controllers/mainController';
 
 // Initialize express
 const app = express();
 
 const connection = knex({
-    client: 'pg',
-    connection: {
-      host: config.database.host,
-      user: config.database.user,
-      password: config.database.password,
-      port: config.database.port,
-      database: config.database.database
-    }
-  });
+  client: 'pg',
+  connection: {
+    host: config.database.host,
+    user: config.database.user,
+    password: config.database.password,
+    port: config.database.port,
+    database: config.database.database
+  }
+});
 
-  const port = config.server.port;
-  app.set('port', port);
+// API location (all node routes will fall under /api path)
+app.use('/api', getMainController());
 
-  const server = http.createServer(app);
+const port = config.server.port;
+app.set('port', port);
+
+const server = http.createServer(app);
 
 server.listen(port, () => {
   console.log(`metroid-prime-randomizer server running on localhost:${port}`);
