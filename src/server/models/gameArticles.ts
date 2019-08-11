@@ -17,10 +17,10 @@ export function getAllForGame(gameAbbreviation: string) {
     });
 };
 
-export function getOneForGame(articleName: string, gameAbbreviation: string) {
+export function getOneForGame(slug: string, gameAbbreviation: string) {
   return knex('games').where('abbreviation', gameAbbreviation).first()
     .then(game => {
-        return knex('games_articles').where('gameid', game.id).andWhere('name', articleName).first();
+        return knex('games_articles').where('gameid', game.id).andWhere('slug', slug).first();
     })
     .then(article => {
       if (article && article.content)

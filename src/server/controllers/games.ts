@@ -21,8 +21,8 @@ router.get('/:gameAbbr/articles', (req, res) => {
     .then(articles => res.json(articles));
 });
 
-router.get('/:gameAbbr/articles/:articleName', (req, res) => {
-  gameArticles.getOneForGame(req.params.articleName, req.params.gameAbbr)
+router.get('/:gameAbbr/articles/:slug', (req, res) => {
+  gameArticles.getOneForGame(req.params.slug, req.params.gameAbbr)
   .then(article => res.json(article));
 });
 
