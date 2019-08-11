@@ -1,6 +1,6 @@
 CREATE TABLE games_articles (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(80) NOT NULL,
+    slug VARCHAR(80) NOT NULL,
     title VARCHAR(150) NOT NULL,
     description VARCHAR(250) NULL,
     content TEXT NOT NULL,
