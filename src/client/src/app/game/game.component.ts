@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as config from '../../assets/resources/config.json';
-import { Game } from '../models/game';
-import { GameService } from '../services/game.service';
+import { Game } from '../../../../common/models/game';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
