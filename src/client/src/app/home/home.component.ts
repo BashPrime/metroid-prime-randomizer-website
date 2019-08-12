@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import * as config from '../../assets/resources/config.json';
+import { Game } from '../models/game';
 
 @Component({
   selector: 'app-home',
@@ -8,20 +10,14 @@ import * as config from '../../assets/resources/config.json';
 })
 export class HomeComponent implements OnInit {
   cdnUrl: string = config.cdnUrl;
-  games: object[] = [
-    {
-      url: '/game/prime',
-      image: 'prime.jpg'
-    },
-    {
-      url: '/game/echoes',
-      image: 'echoes.jpg'
-    }
-  ];
+  games: Game[];
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(() => {
+      this.games = this.route.snapshot.data.games;
+    });
   }
 
 }

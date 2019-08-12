@@ -4,8 +4,8 @@
       <p class="title has-text-centered">Select a Randomizer</p>
       <div class="columns is-centered">
         <div class="column is-one-third" *ngFor="let game of games">
-          <a class="image is-3by4" [routerLink]="game.url">
-            <img [src]="cdnUrl + 'home/' + game.image">
+          <a class="image is-3by4" [routerLink]="'/game/' + game.abbreviation">
+            <img [src]="cdnUrl + 'games/icons/' + game.icon">
           </a>
         </div>
       </div>

@@ -7,15 +7,21 @@ import { GameComponent } from './game/game.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 // Services
-import { GameResolve } from './services/game.service';
+import { AllGamesResolve, SingleGameResolve } from './services/game.service';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  {
+    path: '',
+    component: HomeComponent,
+    resolve: {
+      games: AllGamesResolve
+    }
+  },
   {
     path: 'game/:game',
     component: GameComponent,
     resolve: {
-      game: GameResolve
+      game: SingleGameResolve
     },
   },
   { path: '404', component: NotFoundComponent },

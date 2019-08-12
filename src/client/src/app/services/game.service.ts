@@ -20,7 +20,18 @@ export class GameService {
 @Injectable({
   providedIn: 'root'
 })
-export class GameResolve implements Resolve<Object> {
+export class AllGamesResolve implements Resolve<Object> {
+  constructor(private gameService: GameService) { }
+
+  resolve() {
+    return this.gameService.getAllGames();
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SingleGameResolve implements Resolve<Object> {
   constructor(private gameService: GameService) { }
 
   resolve(route: ActivatedRouteSnapshot) {

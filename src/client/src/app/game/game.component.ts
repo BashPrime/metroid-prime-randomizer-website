@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as config from '../../assets/resources/config.json';
 import { Game } from '../models/game';
 import { GameService } from '../services/game.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -25,5 +26,15 @@ export class GameComponent implements OnInit {
 
   getGame(): Game {
     return this.game;
+  }
+
+  get cdnUrl(): string {
+    return config.cdnUrl;
+  }
+
+  get heroStyle() {
+    return {
+      'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + this.cdnUrl + 'games/banners/' + this.game.banner + ')'
+    }
   }
 }
