@@ -1,18 +1,11 @@
-<section class="hero is-large">
+<section class="hero is-medium">
   <div class="hero-body">
     <div class="container">
       <p class="title has-text-centered">Select a Randomizer</p>
       <div class="columns is-centered">
-        <div class="column is-one-third">
-          <a class="image" routerLink="/games/prime">
-            <!-- not checking in actual image, so leaving src out for the time being -->
-            <img>
-          </a>
-        </div>
-        <div class="column is-one-third">
-          <a class="image" routerLink="/games/echoes">
-            <!-- not checking in actual image, so leaving src out for the time being -->
-            <img>
+        <div class="column is-one-third" *ngFor="let game of games">
+          <a class="image is-3by4" [routerLink]="game.url">
+            <img [src]="cdnUrl + 'home/' + game.image">
           </a>
         </div>
       </div>

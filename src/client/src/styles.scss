@@ -1,7 +1,7 @@
 // Import bootstrap
-@import "~bulmaswatch/darkly/_variables.scss";
-@import "~bulma/bulma.sass";
-@import "~bulmaswatch/darkly/_overrides.scss";
+@import '~bulmaswatch/darkly/_variables';
+@import '~bulma/bulma';
+@import '~bulmaswatch/darkly/_overrides';
 
 html {
   overflow: auto;

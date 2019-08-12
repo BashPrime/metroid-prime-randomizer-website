@@ -1,8 +1,11 @@
 .image img {
+  max-width: 100%;
   width: auto;
   max-height: 480px;
 }
 
 .image {
-  height:100%;
+  :hover {
+    box-shadow: 0 0 10px white;
+  }
 }
