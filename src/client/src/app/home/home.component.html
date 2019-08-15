@@ -3,7 +3,7 @@
     <div class="container">
       <p class="title has-text-centered">Select a Randomizer</p>
       <div class="columns is-centered">
-        <div class="column is-one-third" *ngFor="let game of games">
+        <div class="column" *ngFor="let game of games">
           <a class="image is-3by4" [routerLink]="'/game/' + game.abbreviation">
             <img [src]="cdnUrl + 'games/icons/' + game.icon">
           </a>
