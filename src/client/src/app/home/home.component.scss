@@ -1,13 +1,19 @@
-.image {
-
-  img {
-    max-height: 480px;
-    max-width: 100%;
-    width: auto;
-    margin: 0 auto;
+.level-item {
+  a:hover .image {
+    box-shadow: 0 0 10px white;
   }
 
-  :hover {
-    box-shadow: 0 0 10px white;
+  .heading {
+    color: white;
+  }
+
+  .image {
+    img {
+      max-height: 480px;
+      max-width: 100%;
+      width: auto;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 0 0 1px #000;
+    }
   }
 }
