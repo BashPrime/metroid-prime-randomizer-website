@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-navigation',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
   protected showNav: boolean = false;
+  faDiscord = faDiscord;
 
   constructor() { }
 

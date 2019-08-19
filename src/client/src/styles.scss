@@ -2,6 +2,7 @@
 @import '~bulmaswatch/darkly/_variables';
 @import '~bulma/bulma';
 @import '~bulmaswatch/darkly/_overrides';
+@import '_overrides';
 
 html {
   overflow: auto;
@@ -24,4 +25,10 @@ html.has-navbar-fixed-top, body.has-navbar-fixed-top {
       width: 100%;
       height: 100%;
   }
+}
+
+.button.discord-button {
+  background-color: #7289da;
+  color: white;
+  border-color: transparent;
 }
