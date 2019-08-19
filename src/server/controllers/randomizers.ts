@@ -26,4 +26,15 @@ router.get('/:abbr/articles', (req, res) => {
     .then(articles => res.json(articles));
 });
 
+router.get('/:gameAbbr/articles/:slug', (req, res) => {
+  randomizersArticles.getOneForRandomizer(req.params.slug, req.params.gameAbbr)
+    .then(article => {
+      if (!article) {
+        res.status(404).send('Article not found.');
+      }
+
+      res.json(article);
+    });
+});
+
 export default router;
