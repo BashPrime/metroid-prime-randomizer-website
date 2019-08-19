@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+
 import * as config from '../../assets/resources/config.json';
 import { Randomizer } from '../../../../common/models/randomizer';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,6 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RandomizerComponent implements OnInit {
   private randomizer: Randomizer;
+  faGithub = faGithub;
+  faDownload = faDownload;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -25,6 +30,23 @@ export class RandomizerComponent implements OnInit {
 
   getRandomizer(): Randomizer {
     return this.randomizer;
+  }
+
+  getAuthorsString(): string {
+    let str = '';
+    const authors = this.randomizer.authors.map(author => author.name).sort();
+
+    for (let i = 0; i < authors.length; i++) {
+      if (i > 0)
+        str += ' ';
+
+      str += authors[i];
+
+      if (i < authors.length - 1)
+        str += ',';
+    }
+
+    return str;
   }
 
   get cdnUrl(): string {

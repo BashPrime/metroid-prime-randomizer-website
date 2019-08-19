@@ -29,6 +29,10 @@
     background-position: center;
 }
 
+.title a.game-link {
+  margin-right: 0.5em;
+}
+
 @media screen and (min-width: $tablet) {
     .hero-body {
         padding: 1.5rem;
