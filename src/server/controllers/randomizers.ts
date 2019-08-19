@@ -9,4 +9,15 @@ router.get('/', (req, res) => {
     .then(randomizers => res.json(randomizers));
 });
 
+router.get('/:abbr', (req, res) => {
+  randomizers.getOneByAbbreviation(req.params.abbr)
+    .then(randomizer => {
+      if (!randomizer) {
+        res.status(404).send('Game not found.');
+      }
+
+      res.json(randomizer)
+    });
+});
+
 export default router;

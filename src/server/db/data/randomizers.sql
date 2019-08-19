@@ -1,2 +1,2 @@
-INSERT INTO randomizers (id, name, repository_url, download_url, gameid) VALUES (1, 'Metroid Prime Randomizer', 'https://github.com/etaylor8086/metroid-prime-randomizer', 'https://github.com/etaylor8086/metroid-prime-randomizer/releases', 1);
-INSERT INTO randomizers (id, name, repository_url, download_url, gameid) VALUES (2, 'Randovania', 'https://github.com/randovania/randovania', 'https://github.com/randovania/randovania/releases', 2);
+INSERT INTO randomizers (id, name, abbreviation, repository_url, download_url, gameid) VALUES (1, 'Metroid Prime Randomizer', 'prime', 'https://github.com/etaylor8086/metroid-prime-randomizer', 'https://github.com/etaylor8086/metroid-prime-randomizer/releases', 1);
+INSERT INTO randomizers (id, name, abbreviation, repository_url, download_url, gameid) VALUES (2, 'Randovania', 'randovania', 'https://github.com/randovania/randovania', 'https://github.com/randovania/randovania/releases', 2);
