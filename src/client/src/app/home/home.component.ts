@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 import * as config from '../../assets/resources/config.json';
 import { Randomizer } from '../../../../common/models/randomizer.js';
@@ -14,7 +13,6 @@ import { Randomizer } from '../../../../common/models/randomizer.js';
 export class HomeComponent implements OnInit {
   cdnUrl: string = config.cdnUrl;
   randomizers: Randomizer[];
-  faDiscord = faDiscord;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -24,4 +22,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  get heroStyle() {
+    return {
+      'background-image': 'linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("' + this.cdnUrl + 'home/home-banner.jpg")'
+    };
+  }
 }

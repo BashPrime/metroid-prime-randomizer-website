@@ -1,3 +1,10 @@
+.hero.has-bg-img {
+  background: #505050;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .level-item {
   a:hover .image {
     box-shadow: 0 0 10px white;
@@ -5,6 +12,7 @@
 
   .heading {
     color: white;
+    font-size:14px;
   }
 
   .image {
