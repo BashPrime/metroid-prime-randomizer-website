@@ -15,12 +15,24 @@
             </a>
           </h1>
           <p class="subtitle">By {{ getAuthorsString() }}</p>
-          <a class="button is-large is-link" [href]="randomizer.download_url" target="_blank">
-            <span class="icon">
-              <fa-icon [icon]="faDownload"></fa-icon>
-            </span>
-            <span class="has-text-weight-bold">Download</span>
-          </a>
+          <div class="field is-grouped">
+            <p class="control">
+              <a class="button is-large is-link" [href]="randomizer.download_url" target="_blank">
+                <span class="icon">
+                  <fa-icon [icon]="faDownload"></fa-icon>
+                </span>
+                <span class="has-text-weight-bold">Download</span>
+              </a>
+            </p>
+            <p class="control">
+              <a class="button is-large" [href]="randomizer.support_url" target="_blank">
+                <span class="icon">
+                  <fa-icon [icon]="faExclamationTriangle"></fa-icon>
+                </span>
+                <span>Report Issue</span>
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </div>

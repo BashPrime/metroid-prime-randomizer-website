@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
 import * as config from '../../assets/resources/config.json';
 import { Randomizer } from '../../../../common/models/randomizer';
@@ -15,6 +15,7 @@ export class RandomizerComponent implements OnInit {
   private randomizer: Randomizer;
   faGithub = faGithub;
   faDownload = faDownload;
+  faExclamationTriangle = faExclamationTriangle;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -55,7 +56,7 @@ export class RandomizerComponent implements OnInit {
 
   get heroStyle() {
     return {
-      'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + this.cdnUrl + 'games/banners/' + this.randomizer.game.banner + ')'
+      'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("' + this.cdnUrl + 'games/banners/' + this.randomizer.game.banner + '")'
     }
   }
 }
