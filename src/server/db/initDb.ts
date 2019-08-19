@@ -9,16 +9,16 @@ const dbSchemas = [
     'users.sql',
     'news.sql',
     'games.sql',
-    'games_articles_categories.sql',
-    'games_articles.sql',
     'randomizers.sql',
+    'randomizers_articles_categories.sql',
+    'randomizers_articles.sql',
     'randomizers_authors.sql'
 ];
 
 const dbData = [
     'games.sql',
-    'games_articles_categories.sql',
     'randomizers.sql',
+    'randomizers_articles_categories.sql',
     'randomizers_authors.sql'
 ];
 

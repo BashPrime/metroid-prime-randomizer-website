@@ -13,6 +13,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class RandomizerComponent implements OnInit {
   private randomizer: Randomizer;
+  private tabs: RandomizerTab[] = [
+    { name: 'Overview', route: '' },
+    { name: 'Articles', route: 'articles' },
+  ];
   faGithub = faGithub;
   faDownload = faDownload;
   faExclamationTriangle = faExclamationTriangle;
@@ -50,6 +54,10 @@ export class RandomizerComponent implements OnInit {
     return str;
   }
 
+  getTabs(): any[] {
+    return this.tabs;
+  }
+
   get cdnUrl(): string {
     return config.cdnUrl;
   }
@@ -59,4 +67,9 @@ export class RandomizerComponent implements OnInit {
       'background-image': 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("' + this.cdnUrl + 'games/banners/' + this.randomizer.game.banner + '")'
     }
   }
+}
+
+class RandomizerTab {
+  name: string;
+  route: string;
 }

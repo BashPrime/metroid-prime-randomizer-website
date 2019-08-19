@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as randomizers from '../models/randomizers';
+import * as randomizersArticles from '../models/randomizersArticles';
 
 const router = Router();
 
@@ -18,6 +19,11 @@ router.get('/:abbr', (req, res) => {
 
       res.json(randomizer)
     });
+});
+
+router.get('/:abbr/articles', (req, res) => {
+  randomizersArticles.getAllForRandomizer(req.params.abbr)
+    .then(articles => res.json(articles));
 });
 
 export default router;

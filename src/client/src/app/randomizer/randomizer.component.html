@@ -38,3 +38,17 @@
     </div>
   </div>
 </section>
+<div class="tabs is-centered">
+  <ul>
+    <li *ngFor="let tab of tabs; let i = index" [ngClass]="{ 'is-active': tabActive.isActive }">
+      <a [routerLink]="['./' + tab.route]" routerLinkActive
+        #tabActive="routerLinkActive" [routerLinkActiveOptions]="{exact:
+        true}">{{ tab.name }}</a>
+    </li>
+  </ul>
+</div>
+<section class="section">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</section>

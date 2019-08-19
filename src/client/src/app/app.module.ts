@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { RandomizerComponent } from './randomizer/randomizer.component';
+import { RandomizerArticleComponent } from './randomizer-article/randomizer-article.component';
+import { RandomizerOverviewComponent } from './randomizer-overview/randomizer-overview.component';
+import { RandomizerAllArticlesComponent } from './randomizer-all-articles/randomizer-all-articles.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { RandomizerComponent } from './randomizer/randomizer.component';
     HomeComponent,
     NotFoundComponent,
     FooterComponent,
-    RandomizerComponent
+    RandomizerComponent,
+    RandomizerArticleComponent,
+    RandomizerOverviewComponent,
+    RandomizerAllArticlesComponent
   ],
   imports: [
     BrowserModule,

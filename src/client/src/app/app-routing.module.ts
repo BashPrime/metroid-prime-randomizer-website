@@ -4,10 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 // Components
 import { HomeComponent } from './home/home.component';
 import { RandomizerComponent } from './randomizer/randomizer.component';
+import { RandomizerOverviewComponent } from './randomizer-overview/randomizer-overview.component';
+import { RandomizerArticleComponent } from './randomizer-article/randomizer-article.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 // Services
 import { AllRandomizersResolve, SingleRandomizerResolve } from './services/randomizer.service';
+import { RandomizerAllArticlesComponent } from './randomizer-all-articles/randomizer-all-articles.component';
 
 const routes: Routes = [
   {
@@ -23,6 +26,23 @@ const routes: Routes = [
     resolve: {
       randomizer: SingleRandomizerResolve
     },
+    children: [
+      {
+        path: '',
+        component: RandomizerOverviewComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'articles',
+        component: RandomizerAllArticlesComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'article/:article',
+        component: RandomizerArticleComponent,
+        pathMatch: 'full'
+      }
+    ]
   },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '404' }
