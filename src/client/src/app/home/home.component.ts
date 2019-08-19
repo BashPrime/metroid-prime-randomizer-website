@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { faDiscord } from '@fortawesome/free-brands-svg-icons';
+
 import * as config from '../../assets/resources/config.json';
-import { Game } from '../../../../common/models/game';
+import { Randomizer } from '../../../../common/models/randomizer.js';
+
 
 @Component({
   selector: 'app-home',
@@ -10,13 +13,14 @@ import { Game } from '../../../../common/models/game';
 })
 export class HomeComponent implements OnInit {
   cdnUrl: string = config.cdnUrl;
-  games: Game[];
+  randomizers: Randomizer[];
+  faDiscord = faDiscord;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(() => {
-      this.games = this.route.snapshot.data.games;
+      this.randomizers = this.route.snapshot.data.randomizers;
     });
   }
 

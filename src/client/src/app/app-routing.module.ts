@@ -3,25 +3,25 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components
 import { HomeComponent } from './home/home.component';
-import { GameComponent } from './game/game.component';
+import { RandomizerComponent } from './randomizer/randomizer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 // Services
-import { AllGamesResolve, SingleGameResolve } from './services/game.service';
+import { AllRandomizersResolve, SingleRandomizerResolve } from './services/randomizer.service';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     resolve: {
-      games: AllGamesResolve
+      randomizers: AllRandomizersResolve
     }
   },
   {
-    path: 'game/:game',
-    component: GameComponent,
+    path: 'randomizer/:randomizer',
+    component: RandomizerComponent,
     resolve: {
-      game: SingleGameResolve
+      randomizer: SingleRandomizerResolve
     },
   },
   { path: '404', component: NotFoundComponent },

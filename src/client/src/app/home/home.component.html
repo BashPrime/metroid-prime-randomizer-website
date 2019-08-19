@@ -1,15 +1,15 @@
 <section class="section">
-    <div class="container">
-      <p class="title has-text-centered">Select a Randomizer</p>
-      <div class="level">
-        <div class="level-item has-text-centered" *ngFor="let game of games">
-          <a [routerLink]="'/game/' + game.abbreviation">
-            <p class="heading">{{ game.name }}</p>
-            <div class="image">
-              <img [src]="cdnUrl + 'games/icons/' + game.icon">
-            </div>
-          </a>
-        </div>
+  <div class="container">
+    <p class="title has-text-centered">Select a Randomizer</p>
+    <div class="level">
+      <div class="level-item has-text-centered" *ngFor="let randomizer of randomizers">
+        <a [routerLink]="'/randomizer/' + randomizer.abbreviation">
+          <p class="heading">{{ randomizer.name }}</p>
+          <div class="image">
+            <img [src]="cdnUrl + 'games/icons/' + randomizer.game.icon">
+          </div>
+        </a>
       </div>
     </div>
+  </div>
 </section>
