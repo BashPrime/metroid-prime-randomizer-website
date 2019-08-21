@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
+
+import { RandomizerArticle, SectionType } from '../../../../common/models/randomizerArticle';
 
 @Component({
   selector: 'app-randomizer-article',
@@ -13,9 +16,16 @@ export class RandomizerArticleComponent implements OnInit {
     youtube: SectionType.YOUTUBE
   };
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    this.route.params.subscribe(() => {
+      this.article = this.route.snapshot.data.article;
+
+      if (!this.article) {
+        this.router.navigate(['/404']);
+      }
+    });
   }
 
   getArticle() {
@@ -29,33 +39,4 @@ export class RandomizerArticleComponent implements OnInit {
   getTrustedYouTubeUrl(id: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + id);
   }
-}
-
-class RandomizerArticle {
-  id: number;
-  name: string;
-  title: string;
-  description: string;
-  content: GameArticleSection[];
-  // game: Game;
-  category: GameArticleCategory;
-  // last_updated_user: User;
-  last_updated_date: Date;
-}
-
-class GameArticleSection {
-  type: SectionType;
-  markdown: string;
-  youtubeId: string;
-}
-
-class GameArticleCategory {
-  id: number;
-  name: string;
-  abbreviation: string;
-}
-
-enum SectionType {
-  MARKDOWN = 'markdown',
-  YOUTUBE = 'youtube'
 }

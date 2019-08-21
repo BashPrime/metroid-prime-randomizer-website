@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 // Services
 import { AllRandomizersResolve, SingleRandomizerResolve } from './services/randomizer.service';
+import { AllRandomizerArticlesResolve, OneRandomizerArticleResolve } from './services/randomizer-article.service';
 import { RandomizerAllArticlesComponent } from './randomizer-all-articles/randomizer-all-articles.component';
 
 const routes: Routes = [
@@ -35,12 +36,18 @@ const routes: Routes = [
       {
         path: 'articles',
         component: RandomizerAllArticlesComponent,
-        pathMatch: 'full'
+        pathMatch: 'full',
+        resolve: {
+          articles: AllRandomizerArticlesResolve
+        }
       },
       {
         path: 'article/:article',
         component: RandomizerArticleComponent,
-        pathMatch: 'full'
+        pathMatch: 'full',
+        resolve: {
+          article: OneRandomizerArticleResolve
+        }
       }
     ]
   },

@@ -6,11 +6,11 @@ import * as users from './users';
 const knex = getConnection();
 
 export function getAllForRandomizer(randoAbbreviation: string) {
-    let fetchedRandomizer;
-    return randomizers.getOneByAbbreviation(randoAbbreviation)
+  let fetchedRandomizer;
+  return randomizers.getOneByAbbreviation(randoAbbreviation)
     .then(randomizer => {
-        fetchedRandomizer = randomizer;
-        return knex('randomizers_articles').where('randomizerid', randomizer.id);
+      fetchedRandomizer = randomizer;
+      return knex('randomizers_articles').where('randomizerid', randomizer.id);
     })
     .then(async articles => {
       for (let article of articles) {
@@ -30,13 +30,19 @@ export function getAllForRandomizer(randoAbbreviation: string) {
 };
 
 export function getOneForRandomizer(slug: string, randoAbbreviation: string) {
-  return knex('randomizers').where('abbreviation', randoAbbreviation).first()
+  let fetchedRandomizer;
+  return randomizers.getOneByAbbreviation(randoAbbreviation)
     .then(randomizer => {
-        return knex('randomizers_articles').where('randomizerid', randomizer.id).andWhere('slug', slug).first();
+      fetchedRandomizer = randomizer;
+      return knex('randomizers_articles').where('randomizerid', randomizer.id).andWhere('slug', slug).first();
     })
-    .then(article => {
-      if (article && article.content)
+    .then(async article => {
+      if (article && article.content) {
+        article.randomizer = fetchedRandomizer;
         article.content = parseContent(article.content);
+        article.last_updated_user = await users.getOneByIdSync(article.last_updated_user);
+        article.category = await randomizersArticlesCategories.getOneByIdSync(article.categoryid);
+      }
 
       return article;
     });

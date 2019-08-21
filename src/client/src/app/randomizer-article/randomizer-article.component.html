@@ -1,7 +1,7 @@
-<h1 class="title">Article Name</h1>
+<h1 class="title">{{ getArticle().title }}</h1>
 <div *ngFor="let section of getArticle().content" class="content">
-  <markdown [data]="section.markdown" *ngIf="section.type === types.markdown"></markdown>
-  <div class="video-container" *ngIf="section.type === types.youtube">
+  <markdown [data]="section.markdown" *ngIf="section.type === getTypes().markdown"></markdown>
+  <div class="video-container" *ngIf="section.type === getTypes().youtube">
     <iframe width="560" height="315" [src]="getTrustedYouTubeUrl(section.youtubeId)" frameborder="0"
       allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
