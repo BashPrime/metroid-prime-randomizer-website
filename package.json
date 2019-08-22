@@ -2,6 +2,7 @@
   "name": "metroid-prime-randomizer-website",
   "version": "1.0.0",
   "scripts": {
+    "build:server": "webpack --config ./webpack-server.config.js",
     "client": "npm run ng:serve --prefix src/client",
     "initdb": "ts-node --project ./src/server/tsconfig.json ./src/server/db/initDb.ts",
     "server": "ts-node --project ./src/server/tsconfig.json ./src/server/main.ts",
@@ -50,10 +51,12 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "protractor": "~5.4.0",
+    "ts-loader": "^6.0.4",
     "ts-node": "^8.3.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.7",
+    "webpack-node-externals": "^1.7.2"
   }
 }
