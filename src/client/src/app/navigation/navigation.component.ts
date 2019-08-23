@@ -7,11 +7,19 @@ import { faDiscord } from '@fortawesome/free-brands-svg-icons';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  protected showNav: boolean = false;
+  private showNav: boolean = false;
   faDiscord = faDiscord;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getShowNav() {
+    return this.showNav;
+  }
+
+  setShowNav(showNav: boolean) {
+    this.showNav = showNav;
   }
 }

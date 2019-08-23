@@ -4,20 +4,20 @@
       <div class="columns">
         <div class="column game-icon-column is-hidden-mobile">
           <div class="image">
-            <img [src]="cdnUrl + 'games/icons/' + randomizer.game.icon" />
+            <img [src]="cdnUrl + 'games/icons/' + getRandomizer().game.icon" />
           </div>
         </div>
         <div class="column">
           <h1 class="title">
-            <a class="game-link" routerLink=".">{{ randomizer.name }}</a>
-            <a class="icon" [href]="randomizer.repository_url" target="_blank">
+            <a class="game-link" routerLink=".">{{ getRandomizer().name }}</a>
+            <a class="icon" [href]="getRandomizer().repository_url" target="_blank">
               <fa-icon [icon]="faGithub"></fa-icon>
             </a>
           </h1>
           <p class="subtitle">By {{ getAuthorsString() }}</p>
           <div class="field is-grouped">
             <p class="control">
-              <a class="button is-large is-link" [href]="randomizer.download_url" target="_blank">
+              <a class="button is-large is-link" [href]="getRandomizer().download_url" target="_blank">
                 <span class="icon">
                   <fa-icon [icon]="faDownload"></fa-icon>
                 </span>
@@ -25,7 +25,7 @@
               </a>
             </p>
             <p class="control">
-              <a class="button is-large" [href]="randomizer.support_url" target="_blank">
+              <a class="button is-large" [href]="getRandomizer().support_url" target="_blank">
                 <span class="icon">
                   <fa-icon [icon]="faExclamationTriangle"></fa-icon>
                 </span>
@@ -40,7 +40,7 @@
 </section>
 <div class="tabs is-centered">
   <ul>
-    <li *ngFor="let tab of tabs; let i = index" [ngClass]="{ 'is-active': tabActive.isActive }">
+    <li *ngFor="let tab of getTabs(); let i = index" [ngClass]="{ 'is-active': tabActive.isActive }">
       <a [routerLink]="['./' + tab.route]" routerLinkActive
         #tabActive="routerLinkActive" [routerLinkActiveOptions]="{exact:
         true}">{{ tab.name }}</a>
