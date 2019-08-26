@@ -14,7 +14,7 @@ router.get('/:abbr', (req, res) => {
   randomizers.getOneByAbbreviation(req.params.abbr)
     .then(randomizer => {
       if (!randomizer) {
-        res.status(404).send('Game not found.');
+        res.status(404).json({ error: 'Randomizer not found.' });
       }
 
       res.json(randomizer)
@@ -30,7 +30,7 @@ router.get('/:gameAbbr/articles/:slug', (req, res) => {
   randomizersArticles.getOneForRandomizer(req.params.slug, req.params.gameAbbr)
     .then(article => {
       if (!article) {
-        res.status(404).send('Article not found.');
+        res.status(404).json({ error: 'Article not found.' });
       }
 
       res.json(article);

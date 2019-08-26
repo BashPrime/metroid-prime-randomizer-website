@@ -36,5 +36,8 @@ export function getOneByAbbreviation(abbreviation: string) {
       delete randomizer.gameid;
 
       return randomizer;
-    });
+    })
+    .catch(err => {
+      return null;
+    })
 };
