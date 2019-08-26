@@ -1,4 +1,9 @@
 .table {
     margin-left: auto;
     margin-right: auto;
+
+    thead th, tbody td {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
 }
