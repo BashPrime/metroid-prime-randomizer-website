@@ -10,7 +10,7 @@ export interface RandomizerArticle {
     randomizer: Randomizer;
     category: RandomizerArticleCategory;
     last_updated_user: User;
-    last_updated_date: Date;
+    last_updated_date: string;
 }
 
 export interface RandomizerArticleSection {

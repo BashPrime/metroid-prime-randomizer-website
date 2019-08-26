@@ -31,7 +31,10 @@ const routes: Routes = [
       {
         path: '',
         component: RandomizerOverviewComponent,
-        pathMatch: 'full'
+        pathMatch: 'full',
+        resolve: {
+          articles: AllRandomizerArticlesResolve
+        }
       },
       {
         path: 'articles',
