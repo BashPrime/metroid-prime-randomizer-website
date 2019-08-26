@@ -2,11 +2,13 @@
   "name": "metroid-prime-randomizer-website",
   "version": "1.0.0",
   "scripts": {
+    "build:client": "npm run ng:build:prod --prefix src/client",
     "build:server": "webpack --config ./webpack-server.config.js",
     "client": "npm run ng:serve --prefix src/client",
     "initdb": "ts-node --project ./src/server/tsconfig.json ./src/server/db/initDb.ts",
     "server": "ts-node --project ./src/server/tsconfig.json ./src/server/main.ts",
-    "server:dev": "nodemon"
+    "server:dev": "nodemon",
+    "server:prod": "node ./dist/server.js"
   },
   "private": true,
   "dependencies": {

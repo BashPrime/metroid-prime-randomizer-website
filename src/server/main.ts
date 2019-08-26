@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as http from 'http';
+import * as path from 'path';
 
 import * as config from './config.json';
 import { getConnection } from './config/database';
@@ -11,8 +12,16 @@ const app = express();
 // Initialize knex connection
 getConnection();
 
+// Angular dist output folder for static files
+app.use(express.static(path.join(__dirname, './client')));
+
 // API location (all node routes will fall under /api path)
 app.use('/api', defineControllers());
+
+// Send all other requests to the Angular app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './client/index.html'));
+});
 
 const port = config.server.port;
 app.set('port', port);

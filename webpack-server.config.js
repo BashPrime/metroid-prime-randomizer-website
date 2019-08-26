@@ -6,11 +6,11 @@ module.exports = {
   target: 'node',
   entry: './src/server/main.ts',
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'bundle-back.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'server.js' 
   },
   resolve: {
-    extensions: ['.ts', '.js', '.json']
+    extensions: ['.ts', '.js']
   },
   module: {
       rules: [
@@ -20,6 +20,9 @@ module.exports = {
               exclude: /node_modules/
           }
       ]
+  },
+  node: {
+    __dirname: false
   },
   externals: [ nodeExternals() ]
 };
