@@ -4,6 +4,7 @@
   "scripts": {
     "build:client": "npm run ng:build:prod --prefix src/client",
     "build:server": "webpack --config ./webpack-server.config.js",
+    "build:prod": "npm run build:client && npm run build:server",
     "client": "npm run ng:serve --prefix src/client",
     "generate:config": "ts-node --project ./src/server/tsconfig.json ./src/server/scripts/generateConfig.ts",
     "initdb": "ts-node --project ./src/server/tsconfig.json ./src/server/db/initDb.ts",
