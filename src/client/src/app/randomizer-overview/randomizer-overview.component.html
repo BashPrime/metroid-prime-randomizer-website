@@ -4,7 +4,7 @@
         <p class="title"><a [routerLink]="'./article/' + article.slug">{{ article.title }}</a></p>
         <div class="tags has-addons">
             <span class="tag is-primary">{{ article.last_updated_user.displayname }}</span>
-            <span class="tag">{{ article.last_updated_date | date}}</span>
+            <span class="tag is-light">{{ article.last_updated_date | date}}</span>
         </div>
     </div>
 </div>
