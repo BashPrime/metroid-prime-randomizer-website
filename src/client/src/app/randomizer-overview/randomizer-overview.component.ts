@@ -21,7 +21,7 @@ export class RandomizerOverviewComponent implements OnInit {
 
   getLatestArticles() {
     return this.articles.sort((a, b) => {
-      return new Date(a.last_updated_date).getTime() - new Date(b.last_updated_date).getTime();
+      return new Date(b.last_updated_date).getTime() - new Date(a.last_updated_date).getTime();
     }).slice(0, 4);
   }
 }
