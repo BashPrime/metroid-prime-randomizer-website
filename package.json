@@ -1,6 +1,6 @@
 {
   "name": "metroid-prime-randomizer-website",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "scripts": {
     "build:client": "npm run ng:build:prod --prefix src/client",
     "build:server": "webpack --config ./webpack-server.config.js",
