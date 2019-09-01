@@ -26,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let article of getFilteredArticles()">
+                    <tr *ngFor="let article of getSortedAndFilteredArticles()">
                         <td>
                             <a [routerLink]="'../article/' + article.slug">
                                 {{ (article.title.length > 30) ? (article.title | slice:0:29) + '...' : (article.title) }}

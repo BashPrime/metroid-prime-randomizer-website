@@ -15,23 +15,19 @@
             </a>
           </h1>
           <p class="subtitle">By {{ getAuthorsString() }}</p>
-          <div class="field is-grouped">
-            <p class="control">
-              <a class="button is-large is-link" [href]="getRandomizer().download_url" target="_blank">
-                <span class="icon">
-                  <fa-icon [icon]="faDownload"></fa-icon>
-                </span>
-                <span class="has-text-weight-bold">Download</span>
-              </a>
-            </p>
-            <p class="control">
-              <a class="button is-large" [href]="getRandomizer().support_url" target="_blank">
-                <span class="icon">
-                  <fa-icon [icon]="faExclamationTriangle"></fa-icon>
-                </span>
-                <span>Report Issue</span>
-              </a>
-            </p>
+          <div class="buttons are-large">
+            <a class="button is-link" [href]="getRandomizer().download_url" target="_blank">
+              <span class="icon">
+                <fa-icon [icon]="faDownload"></fa-icon>
+              </span>
+              <span class="has-text-weight-bold">Download</span>
+            </a>
+            <a class="button" [href]="getRandomizer().support_url" target="_blank">
+              <span class="icon">
+                <fa-icon [icon]="faExclamationTriangle"></fa-icon>
+              </span>
+              <span>Report Issue</span>
+            </a>
           </div>
         </div>
       </div>
@@ -41,8 +37,7 @@
 <div class="tabs is-centered">
   <ul>
     <li *ngFor="let tab of getTabs(); let i = index" [ngClass]="{ 'is-active': tabActive.isActive }">
-      <a [routerLink]="['./' + tab.route]" routerLinkActive
-        #tabActive="routerLinkActive" [routerLinkActiveOptions]="{exact:
+      <a [routerLink]="['./' + tab.route]" routerLinkActive #tabActive="routerLinkActive" [routerLinkActiveOptions]="{exact:
         true}">{{ tab.name }}</a>
     </li>
   </ul>

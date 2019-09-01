@@ -25,8 +25,9 @@ export class RandomizerAllArticlesComponent implements OnInit {
     return this.articles;
   }
 
-  getFilteredArticles() {
-    return this.articles.filter(article => {
+  getSortedAndFilteredArticles() {
+    return this.articles.sort((a, b) => a.title < b.title ? -1 : 1)
+    .filter(article => {
       if (!Object.keys(this.categoryFilters).find(key => this.categoryFilters[key])) {
         return this.articles;
       }
