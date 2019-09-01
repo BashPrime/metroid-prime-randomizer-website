@@ -4,19 +4,27 @@ import * as randomizersArticlesCategories from './randomizersArticlesCategories'
 import * as users from './users';
 
 const knex = getConnection();
+const columns = [
+  'id',
+  'slug',
+  'title',
+  'categoryid',
+  'last_updated_user',
+  'last_updated_date',
+  'randomizerid'
+];
 
 export function getAllForRandomizer(randoAbbreviation: string) {
   let fetchedRandomizer;
   return randomizers.getOneByAbbreviation(randoAbbreviation)
     .then(randomizer => {
       fetchedRandomizer = randomizer;
-      return knex('randomizers_articles').where('randomizerid', randomizer.id);
+      return knex.column(columns).select().from('randomizers_articles').where('randomizerid', randomizer.id);
     })
     .then(async articles => {
       for (let article of articles) {
-        if (article && article.content) {
+        if (article) {
           article.randomizer = fetchedRandomizer;
-          article.content = parseContent(article.content);
           article.last_updated_user = await users.getOneByIdSync(article.last_updated_user);
           article.category = await randomizersArticlesCategories.getOneByIdSync(article.categoryid);
 
