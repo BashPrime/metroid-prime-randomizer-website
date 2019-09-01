@@ -19,9 +19,13 @@ export class RandomizerOverviewComponent implements OnInit {
     });
   }
 
-  getLatestArticles() {
+  getArticles() {
+    return this.articles;
+  }
+
+  getLatestArticles(limit: number = 10) {
     return this.articles.sort((a, b) => {
       return new Date(b.last_updated_date).getTime() - new Date(a.last_updated_date).getTime();
-    }).slice(0, 4);
+    }).slice(0, (limit - 1));
   }
 }
